@@ -7,9 +7,8 @@ php:
     - hhvm-nightly
 
 matrix:
-#    allow_failures:
-#        - php: hhvm
-#        - hhvm-nightly
+    allow_failures:
+        - php: hhvm-nightly
 
 script:
     - vendor/bin/tester -i -p php
