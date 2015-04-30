@@ -3,7 +3,7 @@
   "description": "ParsedownExtra parser for Latte",
   "type": "library",
   "license": ["BSD-3-Clause"],
-  "homepage": "https://github.com/minetro/latte-parsedown-extr",
+  "homepage": "https://github.com/minetro/latte-parsedown-extra",
   "authors": [
     {
       "name": "Milan Felix Sulc",
