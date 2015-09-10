@@ -1,7 +1,7 @@
 # Latte-Parsedown-Extra
 
 [![Build Status](https://travis-ci.org/minetro/latte-parsedown-extra.svg?branch=master)](https://travis-ci.org/minetro/latte-parsedown-extra)
-[![Downloads this Month](https://img.shields.io/packagist/dm/minetro/latte-parsedown-extra.svg?style=flat)](https://packagist.org/packages/minetro/latte-parsedown-extra)
+[![Downloads total](https://img.shields.io/packagist/dt/minetro/latte-parsedown-extra.svg?style=flat)](https://packagist.org/packages/minetro/latte-parsedown-extra)
 [![Latest stable](https://img.shields.io/packagist/v/minetro/latte-parsedown-extra.svg?style=flat)](https://packagist.org/packages/minetro/latte-parsedown-extra)
 [![HHVM Status](https://img.shields.io/hhvm/minetro/latte-parsedown-extra.svg?style=flat)](http://hhvm.h4cc.de/package/minetro/latte-parsedown-extra)
 
