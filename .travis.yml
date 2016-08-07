@@ -7,8 +7,8 @@ php:
     - hhvm-nightly
 
 matrix:
-    allow_failures:
-        - php: hhvm-nightly
+  allow_failures:
+    - php: hhvm-nightly
 
   include:
     - php: 5.6
