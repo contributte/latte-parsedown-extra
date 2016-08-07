@@ -10,6 +10,23 @@ matrix:
     allow_failures:
         - php: hhvm-nightly
 
+  include:
+    - php: 5.6
+      env: COMPOSER_FLAG=--prefer-lowest
+    - php: 5.6
+      env: COMPOSER_FLAG=--prefer-stable
+    - php: 7.0
+      env: COMPOSER_FLAG=--prefer-lowest
+    - php: 7.0
+      env: COMPOSER_FLAG=--prefer-stable
+
+before_script:
+    # Update Composer
+    - composer self-update
+
+    # Install Nette Tester
+    - composer update --no-interaction --prefer-source $COMPOSER_FLAG
+
 script:
     - vendor/bin/tester -i -p php
     - vendor/bin/tester tests/ParsedownExtra -s -p php
@@ -17,10 +34,3 @@ script:
 after_failure:
     # Print *.actual content
     - 'for i in $(find tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done'
-
-before_script:
-    # Update Composer
-    - composer self-update
-
-    # Install Nette Tester
-    - composer install --no-interaction --prefer-source
