@@ -1,7 +1,8 @@
 <?php
 
-namespace Minetro\Parsedown\DI;
+namespace Contributte\Parsedown\DI;
 
+use Contributte\Parsedown\ParsedownExtraAdapter;
 use Nette\DI\CompilerExtension;
 use Nette\InvalidStateException;
 
@@ -13,31 +14,42 @@ use Nette\InvalidStateException;
 class ParsedownExtraExtension extends CompilerExtension
 {
 
-    /** @var array */
-    private $defaults = [
-        'helper' => 'parsedown',
-    ];
+	/** @var array */
+	private $defaults = [
+		'helper' => 'parsedown',
+	];
 
-    public function loadConfiguration()
-    {
-        $config = $this->validateConfig($this->defaults);
-        $builder = $this->getContainerBuilder();
+	/**
+	 * Register services
+	 *
+	 * @return void
+	 */
+	public function loadConfiguration()
+	{
+		$config = $this->validateConfig($this->defaults);
+		$builder = $this->getContainerBuilder();
 
-        $builder->addDefinition($this->prefix('parsedown'))
-            ->setClass('Minetro\Parsedown\ParsedownExtraAdapter');
-    }
+		$builder->addDefinition($this->prefix('parsedown'))
+			->setClass(ParsedownExtraAdapter::class);
+	}
 
-    public function beforeCompile()
-    {
-        $config = $this->validateConfig($this->defaults);
-        $builder = $this->getContainerBuilder();
+	/**
+	 * Decorate services
+	 *
+	 * @return void
+	 */
+	public function beforeCompile()
+	{
+		$config = $this->validateConfig($this->defaults);
+		$builder = $this->getContainerBuilder();
 
-        if (!($templateFactory = $builder->getByType('Nette\Bridges\ApplicationLatte\ILatteFactory'))) {
-            throw new InvalidStateException('Service implemented ILatteFactory not found.');
-        }
+		$templateFactory = $builder->getByType('Nette\Bridges\ApplicationLatte\ILatteFactory');
+		if (!$templateFactory) {
+			throw new InvalidStateException('Service implemented ILatteFactory not found.');
+		}
 
-        $builder->getDefinition($templateFactory)
-            ->addSetup('addFilter', [$config['helper'], ['@' . $this->prefix('parsedown'), 'process']]);
-    }
+		$builder->getDefinition($templateFactory)
+			->addSetup('addFilter', [$config['helper'], ['@' . $this->prefix('parsedown'), 'process']]);
+	}
 
 }

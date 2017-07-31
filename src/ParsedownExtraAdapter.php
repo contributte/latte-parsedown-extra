@@ -1,47 +1,55 @@
 <?php
 
-namespace Minetro\Parsedown;
+namespace Contributte\Parsedown;
 
-use Nette\Object;
+use Nette\SmartObject;
 use ParsedownExtra;
 
 /**
  * ParsedownExtra Adapter
  *
  * @author Milan Felix Sulc <sulcmil@gmail.com>
- * @method onProcess(string $text, ParsedownExtraAdapter $adapter);
+ * @method void onProcess(string $text, ParsedownExtraAdapter $adapter)
  */
-class ParsedownExtraAdapter extends Object
+class ParsedownExtraAdapter
 {
 
-    /** @var ParsedownExtra */
-    private $parsedown;
+	use SmartObject;
 
-    /** @var array */
-    public $onProcess = [];
+	/** @var ParsedownExtra */
+	private $parsedown;
 
-    public function __construct()
-    {
-        $this->parsedown = new ParsedownExtra();
-    }
+	/** @var array */
+	public $onProcess = [];
 
-    /**
-     * @param mixed $text
-     * @param string
-     */
-    public function process($text)
-    {
-        $this->onProcess($text, $this);
-        return $this->parsedown->parse($text);
-    }
+	/**
+	 * Creates adapter
+	 */
+	public function __construct()
+	{
+		$this->parsedown = new ParsedownExtra();
+	}
 
-    /**
-     * @param mixed $line
-     * @param string
-     */
-    public function processLine($line)
-    {
-        $this->onProcess($line, $this);
-        return $this->parsedown->line($line);
-    }
+	/**
+	 * @param mixed $text
+	 * @return mixed
+	 */
+	public function process($text)
+	{
+		$this->onProcess($text, $this);
+
+		return $this->parsedown->parse($text);
+	}
+
+	/**
+	 * @param mixed $line
+	 * @return string
+	 */
+	public function processLine($line)
+	{
+		$this->onProcess($line, $this);
+
+		return $this->parsedown->line($line);
+	}
+
 }
