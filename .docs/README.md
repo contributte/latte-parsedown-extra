@@ -11,11 +11,11 @@
 composer require contributte/latte-parsedown-extra
 ```
 
-## Configuration 
+## Configuration
 
 ```yaml
 extensions:
-    parsedown: Contributte\ParsedownExtra\DI\ParsedownExtraExtension
+    parsedown: Contributte\Parsedown\DI\ParsedownExtraExtension
 
 parsedown:
     helper: parsedown # Name of the helper in Latte
