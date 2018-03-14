@@ -2,10 +2,11 @@
 
 ## Content
 
-- [Usage - how to register](#usage)
+- [Installation - how to install](#installation)
 - [Extension - how to configure](#configuration)
+- [Usage - how to use](#usage)
 
-## Usage
+## Installation
 
 ```sh
 composer require contributte/latte-parsedown-extra
@@ -18,5 +19,19 @@ extensions:
     parsedown: Contributte\Parsedown\DI\ParsedownExtraExtension
 
 parsedown:
+    # Default name is parsedown
     helper: parsedown # Name of the helper in Latte
+```
+
+## Usage
+
+```smarty
+{block|parsedown}
+# Headline
+
+## Headline2
+
+This is my text!
+
+{/block}
 ```

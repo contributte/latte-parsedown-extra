@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Test bootstrap.
- */
-
 use Ninjify\Nunjuck\Environment;
 
 if (@!include __DIR__ . '/../vendor/autoload.php') {
@@ -12,4 +8,6 @@ if (@!include __DIR__ . '/../vendor/autoload.php') {
 }
 
 // Configure environment
-Environment::setup(__DIR__);
+Environment::setupTester();
+Environment::setupTimezone();
+Environment::setupVariables(__DIR__);
