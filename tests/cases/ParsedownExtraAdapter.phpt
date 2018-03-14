@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Test: ParsedownExtraAdapter
- */
-
 use Contributte\Parsedown\ParsedownExtraAdapter;
 use Tester\Assert;
 

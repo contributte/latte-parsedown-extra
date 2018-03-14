@@ -24,10 +24,12 @@ class ParsedownExtraAdapter
 
 	/**
 	 * Creates adapter
+	 *
+	 * @param ParsedownExtra|NULL $parsedown
 	 */
-	public function __construct()
+	public function __construct(ParsedownExtra $parsedown = NULL)
 	{
-		$this->parsedown = new ParsedownExtra();
+		$this->parsedown = $parsedown ? $parsedown : new ParsedownExtra();
 	}
 
 	/**
