@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Contributte\Parsedown;
 
@@ -8,7 +8,6 @@ use ParsedownExtra;
 /**
  * ParsedownExtra Adapter
  *
- * @author Milan Felix Sulc <sulcmil@gmail.com>
  * @method void onProcess(string $text, ParsedownExtraAdapter $adapter)
  */
 class ParsedownExtraAdapter
@@ -19,17 +18,15 @@ class ParsedownExtraAdapter
 	/** @var ParsedownExtra */
 	private $parsedown;
 
-	/** @var array */
+	/** @var callable[] */
 	public $onProcess = [];
 
 	/**
 	 * Creates adapter
-	 *
-	 * @param ParsedownExtra|NULL $parsedown
 	 */
-	public function __construct(ParsedownExtra $parsedown = NULL)
+	public function __construct(?ParsedownExtra $parsedown = null)
 	{
-		$this->parsedown = $parsedown ? $parsedown : new ParsedownExtra();
+		$this->parsedown = $parsedown ?: new ParsedownExtra();
 	}
 
 	/**
@@ -45,9 +42,8 @@ class ParsedownExtraAdapter
 
 	/**
 	 * @param mixed $line
-	 * @return string
 	 */
-	public function processLine($line)
+	public function processLine($line): string
 	{
 		$this->onProcess($line, $this);
 

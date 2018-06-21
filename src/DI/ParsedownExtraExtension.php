@@ -1,32 +1,29 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Contributte\Parsedown\DI;
 
 use Contributte\Parsedown\ParsedownExtraAdapter;
 use Contributte\Parsedown\ParsedownFilter;
+use Nette\Bridges\ApplicationLatte\ILatteFactory;
 use Nette\DI\CompilerExtension;
 use Nette\DI\Statement;
 use Nette\InvalidStateException;
 
 /**
  * ParsedownExtra Extension
- *
- * @author Milan Felix Sulc <sulcmil@gmail.com>
  */
 class ParsedownExtraExtension extends CompilerExtension
 {
 
-	/** @var array */
+	/** @var mixed[] */
 	private $defaults = [
 		'helper' => 'parsedown',
 	];
 
 	/**
 	 * Register services
-	 *
-	 * @return void
 	 */
-	public function loadConfiguration()
+	public function loadConfiguration(): void
 	{
 		$this->validateConfig($this->defaults);
 		$builder = $this->getContainerBuilder();
@@ -37,17 +34,15 @@ class ParsedownExtraExtension extends CompilerExtension
 
 	/**
 	 * Decorate services
-	 *
-	 * @return void
 	 */
-	public function beforeCompile()
+	public function beforeCompile(): void
 	{
 		$config = $this->validateConfig($this->defaults);
 		$builder = $this->getContainerBuilder();
 
-		$templateFactory = $builder->getByType('Nette\Bridges\ApplicationLatte\ILatteFactory');
-		if (!$templateFactory) {
-			throw new InvalidStateException('Service implemented Nette\Bridges\ApplicationLatte\ILatteFactory not found.');
+		$templateFactory = $builder->getByType(ILatteFactory::class);
+		if ($templateFactory === null) {
+			throw new InvalidStateException(sprintf('Service which implements %s not found.', ILatteFactory::class));
 		}
 
 		$builder->getDefinition($templateFactory)

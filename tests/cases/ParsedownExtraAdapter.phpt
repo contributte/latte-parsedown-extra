@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types = 1);
 
 use Contributte\Parsedown\ParsedownExtraAdapter;
 use Tester\Assert;
 
 require __DIR__ . '/../bootstrap.php';
 
-test(function () {
+test(function (): void {
 	$adapter = new ParsedownExtraAdapter();
 
 	$text = '
