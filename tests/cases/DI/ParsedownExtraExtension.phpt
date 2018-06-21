@@ -1,5 +1,4 @@
-<?php
-
+<?php declare(strict_types = 1);
 
 use Contributte\Parsedown\DI\ParsedownExtraExtension;
 use Nette\Bridges\ApplicationDI\LatteExtension;
@@ -12,11 +11,11 @@ use Tester\FileMock;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-test(function () {
-	$loader = new ContainerLoader(TEMP_DIR, TRUE);
-	$class = $loader->load(function (Compiler $compiler) {
-		$compiler->addExtension('console', new ParsedownExtraExtension());
+test(function (): void {
+	$loader = new ContainerLoader(TEMP_DIR, true);
+	$class = $loader->load(function (Compiler $compiler): void {
 		$compiler->addExtension('latte', new LatteExtension(TEMP_DIR));
+		$compiler->addExtension('parsedown', new ParsedownExtraExtension());
 		$compiler->loadConfig(FileMock::create('
 		services:
 			latte.latteFactory:
@@ -26,7 +25,7 @@ test(function () {
 	}, [microtime(), 1]);
 
 	/** @var Container $container */
-	$container = new $class;
+	$container = new $class();
 
 	$text = '
 {block|parsedown}

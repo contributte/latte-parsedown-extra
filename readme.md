@@ -26,7 +26,9 @@ composer require contributte/latte-parsedown-extra
 
 | State       | Version  | Branch   | PHP      |
 |-------------|----------|----------|----------|
-| stable      | `^1.1.0` | `master` | `>= 5.6` |
+| dev         | `^1.4.0` | `master` | `>= 7.1` |
+| stable      | `^1.3.0` | `master` | `>= 7.1` |
+| stable      | `^1.2.0` | `master` | `>= 5.6` |
 
 ## Overview
 
@@ -45,6 +47,13 @@ composer require contributte/latte-parsedown-extra
         </a>
         </br>
         <a href="https://github.com/f3l1x">Milan Felix Šulc</a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/mabar">
+            <img width="150" height="150" src="https://avatars0.githubusercontent.com/u/20974277?s=400&v=4">
+        </a>
+        </br>
+        <a href="https://github.com/mabar">Marek Bartoš</a>
       </td>
     </tr>
   <tbody>
