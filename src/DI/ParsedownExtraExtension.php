@@ -29,7 +29,7 @@ class ParsedownExtraExtension extends CompilerExtension
 		$builder = $this->getContainerBuilder();
 
 		$builder->addDefinition($this->prefix('parsedown'))
-			->setClass(ParsedownExtraAdapter::class);
+			->setFactory(ParsedownExtraAdapter::class);
 	}
 
 	/**

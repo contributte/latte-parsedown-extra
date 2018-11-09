@@ -7,10 +7,10 @@
 [![Build Status](https://img.shields.io/travis/contributte/latte-parsedown-extra.svg?style=flat-square)](https://travis-ci.org/contributte/latte-parsedown-extra)
 [![Code coverage](https://img.shields.io/coveralls/contributte/latte-parsedown-extra.svg?style=flat-square)](https://coveralls.io/r/contributte/latte-parsedown-extra)
 [![Licence](https://img.shields.io/packagist/l/contributte/latte-parsedown-extra.svg?style=flat-square)](https://packagist.org/packages/contributte/latte-parsedown-extra)
-
 [![Downloads this Month](https://img.shields.io/packagist/dm/contributte/latte-parsedown-extra.svg?style=flat-square)](https://packagist.org/packages/contributte/latte-parsedown-extra)
 [![Downloads total](https://img.shields.io/packagist/dt/contributte/latte-parsedown-extra.svg?style=flat-square)](https://packagist.org/packages/contributte/latte-parsedown-extra)
 [![Latest stable](https://img.shields.io/packagist/v/contributte/latte-parsedown-extra.svg?style=flat-square)](https://packagist.org/packages/contributte/latte-parsedown-extra)
+[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
 
 ## Discussion / Help
 
@@ -50,13 +50,13 @@ composer require contributte/latte-parsedown-extra
       </td>
       <td align="center">
         <a href="https://github.com/mabar">
-            <img width="150" height="150" src="https://avatars0.githubusercontent.com/u/20974277?s=400&v=4">
+            <img width="150" height="150" src="https://avatars0.githubusercontent.com/u/20974277?s=150&v=4">
         </a>
         </br>
         <a href="https://github.com/mabar">Marek Bartoš</a>
       </td>
     </tr>
-  <tbody>
+  </tbody>
 </table>
 
 ---
