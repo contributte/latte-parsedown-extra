@@ -3,7 +3,6 @@
 namespace Contributte\Parsedown;
 
 use Latte\Runtime\FilterInfo;
-use Latte\Runtime\Html;
 
 class ParsedownFilter
 {
@@ -19,9 +18,9 @@ class ParsedownFilter
 	/**
 	 * @param mixed $text
 	 */
-	public function apply(FilterInfo $info, $text): Html
+	public function apply(FilterInfo $info, $text): string
 	{
-		return new Html($this->adapter->process($text));
+		return $this->adapter->process($text);
 	}
 
 }

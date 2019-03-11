@@ -14,7 +14,7 @@
     "php": ">= 7.1",
     "nette/di": "~2.4.10",
     "nette/utils": "~2.5.2",
-    "latte/latte": "~2.4.7",
+    "latte/latte": "~2.4.7|~2.5.1",
     "erusev/parsedown-extra": "^0.7.1",
     "erusev/parsedown": "~1.7.1"
   },
@@ -51,5 +51,10 @@
     "phpstan": [
       "temp/phpstan/vendor/bin/phpstan analyse -l max -c phpstan.neon src"
     ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.4.x-dev"
+    }
   }
 }
