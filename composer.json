@@ -12,16 +12,16 @@
   ],
   "require": {
     "php": ">= 7.1",
-    "nette/di": "~2.4.10",
-    "nette/utils": "~2.5.2",
-    "latte/latte": "~2.4.7|~2.5.1",
+    "nette/di": "^3.0",
+    "nette/utils": "^3.0",
+    "latte/latte": "^2.5",
     "erusev/parsedown-extra": "^0.7.1",
     "erusev/parsedown": "~1.7.1"
   },
   "require-dev": {
-    "ninjify/qa": "^0.8.0",
-    "ninjify/nunjuck": "^0.2.0",
-    "nette/application": "~2.4.9"
+    "ninjify/qa": "^0.9",
+    "ninjify/nunjuck": "^0.2",
+    "nette/application": "^3.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
