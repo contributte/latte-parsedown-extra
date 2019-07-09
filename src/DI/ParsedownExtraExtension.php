@@ -6,8 +6,11 @@ use Contributte\Parsedown\ParsedownExtraAdapter;
 use Contributte\Parsedown\ParsedownFilter;
 use Nette\Bridges\ApplicationLatte\ILatteFactory;
 use Nette\DI\CompilerExtension;
+use Nette\DI\Definitions\FactoryDefinition;
 use Nette\DI\Statement;
 use Nette\InvalidStateException;
+use Nette\Schema\Expect;
+use Nette\Schema\Schema;
 
 /**
  * ParsedownExtra Extension
@@ -15,38 +18,38 @@ use Nette\InvalidStateException;
 class ParsedownExtraExtension extends CompilerExtension
 {
 
-	/** @var mixed[] */
-	private $defaults = [
-		'helper' => 'parsedown',
-	];
+	public static function createSchema(): Schema
+	{
+		return Expect::structure([
+			'helper' => Expect::string('parsedown'),
+		]);
+	}
 
-	/**
-	 * Register services
-	 */
+	public function getConfigSchema(): Schema
+	{
+		return self::createSchema();
+	}
+
 	public function loadConfiguration(): void
 	{
-		$this->validateConfig($this->defaults);
 		$builder = $this->getContainerBuilder();
 
 		$builder->addDefinition($this->prefix('parsedown'))
 			->setFactory(ParsedownExtraAdapter::class);
 	}
 
-	/**
-	 * Decorate services
-	 */
 	public function beforeCompile(): void
 	{
-		$config = $this->validateConfig($this->defaults);
 		$builder = $this->getContainerBuilder();
 
-		$templateFactory = $builder->getByType(ILatteFactory::class);
-		if ($templateFactory === null) {
+		if ($builder->getByType(ILatteFactory::class) === null) {
 			throw new InvalidStateException(sprintf('Service which implements %s not found.', ILatteFactory::class));
 		}
 
-		$builder->getDefinition($templateFactory)
-			->addSetup('addFilter', [$config['helper'], [new Statement(ParsedownFilter::class), 'apply']]);
+		$config = (array) $this->config;
+		$latte = $builder->getDefinitionByType(ILatteFactory::class);
+		assert($latte instanceof FactoryDefinition);
+		$latte->getResultDefinition()->addSetup('addFilter', [$config['helper'], [new Statement(ParsedownFilter::class), 'apply']]);
 	}
 
 }
