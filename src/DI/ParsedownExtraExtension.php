@@ -18,16 +18,11 @@ use Nette\Schema\Schema;
 class ParsedownExtraExtension extends CompilerExtension
 {
 
-	public static function createSchema(): Schema
+	public function getConfigSchema(): Schema
 	{
 		return Expect::structure([
 			'helper' => Expect::string('parsedown'),
 		]);
-	}
-
-	public function getConfigSchema(): Schema
-	{
-		return self::createSchema();
 	}
 
 	public function loadConfiguration(): void
