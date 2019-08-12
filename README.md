@@ -26,12 +26,12 @@ composer require contributte/latte-parsedown-extra
 
 | State       | Version  | Branch   | PHP      |
 |-------------|----------|----------|----------|
-| dev         | `^1.4.0` | `master` | `>= 7.1` |
-| stable      | `^1.3.0` | `master` | `>= 7.1` |
+| dev         | `^1.6.0` | `master` | `^7.2`   |
+| stable      | `^1.5.0` | `master` | `^7.2`   |
+| stable      | `^1.4.0` | `master` | `>= 7.1` |
 | stable      | `^1.2.0` | `master` | `>= 5.6` |
 
 ## Overview
-
 
 - [Usage - how to install](https://github.com/contributte/latte-parsedown-extra/blob/master/.docs/README.md#usage)
 - [Extension - how to configure](https://github.com/contributte/latte-parsedown-extra/blob/master/.docs/README.md#configuration)
