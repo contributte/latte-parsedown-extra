@@ -26,7 +26,7 @@ class ParsedownExtraAdapter
 	 */
 	public function __construct(?ParsedownExtra $parsedown = null)
 	{
-		$this->parsedown = $parsedown ?: new ParsedownExtra();
+		$this->parsedown = $parsedown ?? new ParsedownExtra();
 	}
 
 	/**

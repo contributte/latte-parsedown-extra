@@ -12,7 +12,9 @@ test(function (): void {
 # Headline
 
 ## Headline2
+
+* 1
 ';
 
-	Assert::equal("<h1>Headline</h1>\n<h2>Headline2</h2>", $adapter->process($text));
+	Assert::equal("<h1>Headline</h1>\n<h2>Headline2</h2>\n<ul>\n<li>1</li>\n</ul>", $adapter->process($text));
 });
