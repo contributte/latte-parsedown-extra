@@ -7,7 +7,7 @@ use Contributte\Parsedown\ParsedownFilter;
 use Nette\Bridges\ApplicationLatte\ILatteFactory;
 use Nette\DI\CompilerExtension;
 use Nette\DI\Definitions\FactoryDefinition;
-use Nette\DI\Statement;
+use Nette\DI\Definitions\Statement;
 use Nette\InvalidStateException;
 use Nette\Schema\Expect;
 use Nette\Schema\Schema;
