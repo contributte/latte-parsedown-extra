@@ -8,7 +8,8 @@
 
 ## Installation
 
-```sh
+```bash
+
 composer require contributte/latte-parsedown-extra
 ```
 
