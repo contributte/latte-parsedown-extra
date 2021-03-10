@@ -14,13 +14,13 @@ composer require contributte/latte-parsedown-extra
 
 ## Configuration
 
-```yaml
+```neon
 extensions:
-    parsedown: Contributte\Parsedown\DI\ParsedownExtraExtension
+	parsedown: Contributte\Parsedown\DI\ParsedownExtraExtension
 
 parsedown:
-    # Default name is parsedown
-    helper: parsedown # Name of the helper in Latte
+	# Default name is parsedown
+	helper: parsedown # Name of the helper in Latte
 ```
 
 ## Usage
