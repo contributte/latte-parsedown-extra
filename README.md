@@ -32,12 +32,10 @@ For details on how to use this package, check out our [documentation](.docs).
 
 ## Versions
 
-| State       | Version  | Branch   | PHP      |
-|-------------|----------|----------|----------|
-| dev         | `^1.6.0` | `master` | `^7.2`   |
-| stable      | `^1.5.0` | `master` | `^7.2`   |
-| stable      | `^1.4.0` | `master` | `>= 7.1` |
-| stable      | `^1.2.0` | `master` | `>= 5.6` |
+| State       | Version  | Branch   | PHP     |
+|-------------|----------|----------|---------|
+| dev         | `^1.7.0` | `master` | `>=7.2` |
+| stable      | `^1.6.0` | `master` | `>=7.2` |
 
 ## Development
 
