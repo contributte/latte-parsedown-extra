@@ -20,7 +20,7 @@
 
 ## Usage
 
-To install latest version of `contributte/latte-parsedown-extra` use [Composer](https://getcomposer.com).
+To install latest version of `contributte/latte-parsedown-extra` use [Composer](https://getcomposer.org).
 
 ```bash
 composer require contributte/latte-parsedown-extra
