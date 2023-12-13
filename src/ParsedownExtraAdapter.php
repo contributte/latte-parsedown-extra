@@ -15,11 +15,10 @@ class ParsedownExtraAdapter
 
 	use SmartObject;
 
-	/** @var ParsedownExtra */
-	private $parsedown;
-
 	/** @var callable[] */
-	public $onProcess = [];
+	public array $onProcess = [];
+
+	private ParsedownExtra $parsedown;
 
 	/**
 	 * Creates adapter
@@ -29,21 +28,14 @@ class ParsedownExtraAdapter
 		$this->parsedown = $parsedown ?? new ParsedownExtra();
 	}
 
-	/**
-	 * @param mixed $text
-	 * @return mixed
-	 */
-	public function process($text)
+	public function process(mixed $text): mixed
 	{
 		$this->onProcess($text, $this);
 
 		return $this->parsedown->parse($text);
 	}
 
-	/**
-	 * @param mixed $line
-	 */
-	public function processLine($line): string
+	public function processLine(mixed $line): string
 	{
 		$this->onProcess($line, $this);
 

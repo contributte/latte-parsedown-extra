@@ -4,16 +4,17 @@ namespace Contributte\Parsedown\DI;
 
 use Contributte\Parsedown\ParsedownExtraAdapter;
 use Contributte\Parsedown\ParsedownFilter;
-use Nette\Bridges\ApplicationLatte\ILatteFactory;
+use LogicException;
+use Nette\Bridges\ApplicationLatte\LatteFactory;
 use Nette\DI\CompilerExtension;
 use Nette\DI\Definitions\FactoryDefinition;
 use Nette\DI\Definitions\Statement;
-use Nette\InvalidStateException;
 use Nette\Schema\Expect;
 use Nette\Schema\Schema;
+use stdClass;
 
 /**
- * ParsedownExtra Extension
+ * @method stdClass getConfig()
  */
 class ParsedownExtraExtension extends CompilerExtension
 {
@@ -36,15 +37,17 @@ class ParsedownExtraExtension extends CompilerExtension
 	public function beforeCompile(): void
 	{
 		$builder = $this->getContainerBuilder();
+		$config = $this->getConfig();
 
-		if ($builder->getByType(ILatteFactory::class) === null) {
-			throw new InvalidStateException(sprintf('Service which implements %s not found.', ILatteFactory::class));
+		if ($builder->getByType(LatteFactory::class) === null) {
+			throw new LogicException('You should register LatteFactory first');
 		}
 
-		$config = (array) $this->config;
-		$latte = $builder->getDefinitionByType(ILatteFactory::class);
+		$latte = $builder->getDefinitionByType(LatteFactory::class);
 		assert($latte instanceof FactoryDefinition);
-		$latte->getResultDefinition()->addSetup('addFilter', [$config['helper'], [new Statement(ParsedownFilter::class), 'apply']]);
+		$latte
+			->getResultDefinition()
+			->addSetup('addFilter', [$config->helper, [new Statement(ParsedownFilter::class), 'apply']]);
 	}
 
 }

@@ -3,27 +3,22 @@
 namespace Contributte\Parsedown;
 
 use Exception;
-use Latte\Engine;
+use Latte\ContentType;
 use Latte\Runtime\FilterInfo;
 
 class ParsedownFilter
 {
 
-	/** @var ParsedownExtraAdapter */
-	protected $adapter;
+	protected ParsedownExtraAdapter $adapter;
 
 	public function __construct(ParsedownExtraAdapter $adapter)
 	{
 		$this->adapter = $adapter;
 	}
 
-	/**
-	 * @param FilterInfo $info
-	 * @param mixed $text
-	 */
-	public function apply(FilterInfo $info, $text): string
+	public function apply(FilterInfo $info, mixed $text): mixed
 	{
-		if ($info->contentType !== Engine::CONTENT_HTML) {
+		if ($info->contentType !== ContentType::Html) {
 			throw new Exception('Filter |parsedown used in incompatible content type.');
 		}
 
