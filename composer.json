@@ -19,13 +19,10 @@
     "nette/utils": "^4.0.3"
   },
   "require-dev": {
-    "ninjify/qa": "^0.12",
-    "ninjify/nunjuck": "^0.4",
-    "nette/application": "^3.0",
-    "phpstan/phpstan-deprecation-rules": "^1.0",
-    "phpstan/phpstan-nette": "^1.0",
-    "phpstan/phpstan": "^1.0",
-    "phpstan/phpstan-strict-rules": "^1.0"
+    "contributte/qa": "^0.4",
+    "contributte/tester": "^0.4",
+    "contributte/phpstan": "^0.1",
+    "nette/application": "^3.1.14"
   },
   "autoload": {
     "psr-4": {
