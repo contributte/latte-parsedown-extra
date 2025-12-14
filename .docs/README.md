@@ -3,8 +3,9 @@
 ## Content
 
 - [Installation - how to install](#installation)
-- [Extension - how to configure](#configuration)
+- [Configuration - how to configure](#configuration)
 - [Usage - how to use](#usage)
+- [Usage - standalone](#standalone-usage)
 
 ## Installation
 
@@ -34,4 +35,22 @@ parsedown:
 This is my text!
 
 {/block}
+```
+
+## Standalone usage
+
+Use the `ParsedownExtension` to register the filter directly with Latte (without Nette DI):
+
+```php
+use Contributte\Parsedown\ParsedownExtension;
+use Latte\Engine;
+
+$latte = new Engine();
+$latte->addExtension(new ParsedownExtension());
+```
+
+You can customize the filter name:
+
+```php
+$latte->addExtension(new ParsedownExtension(filterName: 'markdown'));
 ```
