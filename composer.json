@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "php": ">=8.1",
+    "php": ">=8.2",
     "erusev/parsedown": "^1.7.4",
     "erusev/parsedown-extra": "^0.8.1",
     "latte/latte": "^3.0.12",
@@ -21,7 +21,7 @@
   "require-dev": {
     "contributte/qa": "^0.4",
     "contributte/tester": "^0.4",
-    "contributte/phpstan": "^0.1",
+    "contributte/phpstan": "^0.2.0",
     "nette/application": "^3.1.14"
   },
   "autoload": {
