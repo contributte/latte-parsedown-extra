@@ -18,17 +18,7 @@
     Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
 </p>
 
-## Usage
-
-To install latest version of `contributte/latte-parsedown-extra` use [Composer](https://getcomposer.org).
-
-```bash
-composer require contributte/latte-parsedown-extra
-```
-
-## Documentation
-
-For details on how to use this package, check out our [documentation](.docs).
+Markdown filter for Latte powered by Parsedown Extra, with Nette DI integration and standalone Latte extension support.
 
 ## Versions
 
@@ -36,6 +26,56 @@ For details on how to use this package, check out our [documentation](.docs).
 |-------------|----------|----------|---------|
 | dev         | `^3.1`   | `master` | `>=8.2` |
 | stable      | `^3.0`   | `master` | `>=8.2` |
+
+## Installation
+
+To install latest version of `contributte/latte-parsedown-extra` use [Composer](https://getcomposer.org).
+
+```bash
+composer require contributte/latte-parsedown-extra
+```
+
+## Configuration
+
+```neon
+extensions:
+	parsedown: Contributte\Parsedown\DI\ParsedownExtraExtension
+
+parsedown:
+	# Default name is parsedown
+	helper: parsedown # Name of the helper in Latte
+```
+
+## Usage
+
+```latte
+{block|parsedown}
+# Headline
+
+## Headline2
+
+This is my text!
+
+{/block}
+```
+
+## Standalone Usage
+
+Use the `ParsedownExtension` to register the filter directly with Latte (without Nette DI):
+
+```php
+use Contributte\Parsedown\ParsedownExtension;
+use Latte\Engine;
+
+$latte = new Engine();
+$latte->addExtension(new ParsedownExtension());
+```
+
+You can customize the filter name:
+
+```php
+$latte->addExtension(new ParsedownExtension(filterName: 'markdown'));
+```
 
 ## Development
 
